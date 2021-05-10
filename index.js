@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
 
 const axios = require('axios');
 
 var cities = require("./cities");
+
+app.use(cors());
 
 const apiKey = process.env.WEATHER_API_KEY;
 
@@ -21,6 +24,8 @@ async function getWeatherData() {
     const response = await axios.get(baseUrl + '?lat='+ latitude + '&lon=' + longitude +'&appid=' + apiKey + '&units=metric');
     return response.data;
 }
+
+app.use(cors());
 
 app.get("/city", (req, res, next) => {
     getWeatherData().then((result) => res.json(result));
