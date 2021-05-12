@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: weather
+  name: weather
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: weather
+    spec:
+      containers:
+      - image: saiicharan/weather
+        name: weather
+        imagePullPolicy: Always
+        env:
+          - name: WEATHER_URL
+            value: https://api.openweathermap.org/data/2.5/weather       
+          - name: WEATHER_API_KEY
+            value: 2aafd08b718a91fa55738cc806ed82ff
+        ports:
+          - containerPort: 8081
+status: {}
