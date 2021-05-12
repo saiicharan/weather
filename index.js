@@ -29,16 +29,12 @@ async function getWeatherData() {
 
 app.use(cors());
 
-app.get("/city", (req, res, next) => {
+app.get('/', function (req, res) {
     try {
         getWeatherData().then((result) => res.json(result));
     } catch (error) {
         console.log(error);
     }
-});
-
-app.get('/', function (req, res) {
-    res.send("Hello welcome to weather app");
 });
 
 var server = app.listen(port, () => {
