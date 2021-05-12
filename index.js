@@ -8,6 +8,8 @@ var cities = require("./cities");
 
 app.use(cors());
 
+const port = process.env.PORT || 8081;
+
 const apiKey = process.env.WEATHER_API_KEY;
 
 const getRandomCity = () => {
@@ -31,6 +33,10 @@ app.get("/city", (req, res, next) => {
     getWeatherData().then((result) => res.json(result));
 });
 
-app.listen(process.env.PORT, () => {
-    console.log("Server running on port " + process.env.PORT);
+app.get('/', function(req, res) {
+    res.send("Hello NodeJS Test with Gitlab and testing Gitlab CICD");
+  });
+
+app.listen(port, () => {
+    console.log("Server running on port " + port);
 });
