@@ -23,19 +23,23 @@ async function getWeatherData() {
     const longitude = city.lng;
     const latitude = city.lat;
 
-    const response = await axios.get(baseUrl + '?lat='+ latitude + '&lon=' + longitude +'&appid=' + apiKey + '&units=metric');
+    const response = await axios.get(baseUrl + '?lat=' + latitude + '&lon=' + longitude + '&appid=' + apiKey + '&units=metric');
     return response.data;
 }
 
 app.use(cors());
 
 app.get("/city", (req, res, next) => {
-    getWeatherData().then((result) => res.json(result));
+    try {
+        getWeatherData().then((result) => res.json(result));
+    } catch (error) {
+        console.log(error);
+    }
 });
 
-app.get('/', function(req, res) {
-    res.send("Hello NodeJS Test with Gitlab and testing Gitlab CICD");
-  });
+app.get('/', function (req, res) {
+    res.send("Hello welcome to weather app");
+});
 
 var server = app.listen(port, () => {
     console.log("Server running on port " + port);
