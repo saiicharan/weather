@@ -37,6 +37,8 @@ app.get('/', function(req, res) {
     res.send("Hello NodeJS Test with Gitlab and testing Gitlab CICD");
   });
 
-app.listen(port, () => {
+var server = app.listen(port, () => {
     console.log("Server running on port " + port);
 });
+
+module.exports = server;
