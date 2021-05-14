@@ -1,0 +1,24 @@
+{
+    "family": "weather",
+    "executionRoleArn": "arn:aws:iam::417834101719:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "weather",
+            "image": "417834101719.dkr.ecr.eu-central-1.amazonaws.com/weather:latest",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024"
+}
