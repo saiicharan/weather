@@ -8,8 +8,8 @@
             "image": "417834101719.dkr.ecr.eu-central-1.amazonaws.com/weather:latest",
             "portMappings": [
                 {
-                    "containerPort": 3000,
-                    "hostPort": 3000,
+                    "containerPort": 8081,
+                    "hostPort": 8081,
                     "protocol": "tcp"
                 }
             ],
