@@ -4,11 +4,17 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+ARG PORT
+ARG WEATHER_URL
+ARG WEATHER_API_KEY
+
 RUN npm install
 
 COPY . .
 
-ENV PORT=8081
+ENV PORT=${PORT}
+ENV WEATHER_URL=${WEATHER_URL}
+ENV WEATHER_API_KEY=${WEATHER_API_KEY}
 
 EXPOSE 8081
 CMD [ "node", "index.js" ]
