@@ -1,4 +1,10 @@
 version: 2
+
+on:
+  push:
+    branches:
+      - master
+
 updates:
   - package-ecosystem: "npm"
     directory: "/"
