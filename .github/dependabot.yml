@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "daily"
       # Check for npm updates on Sundays
-      time: "15:20"
+      time: "15:45"
       timezone: "Asia/Kolkata"
     # Labels on pull requests for security and version updates
     labels:
